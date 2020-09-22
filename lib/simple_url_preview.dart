@@ -43,6 +43,9 @@ class SimpleUrlPreview extends StatefulWidget {
   /// onTap URL preview, by default opens URL in default browser
   final VoidCallback onTap;
 
+  /// Callback when closable preview closed
+  final VoidCallback onClose;
+
   SimpleUrlPreview({
     @required this.url,
     this.previewHeight = 130.0,
@@ -54,6 +57,7 @@ class SimpleUrlPreview extends StatefulWidget {
     this.imageLoaderColor,
     this.previewContainerPadding,
     this.onTap,
+    this.onClose,
   })  : assert(previewHeight >= 130.0,
             'The preview height should be greater than or equal to 130'),
         assert(titleLines <= 2 && titleLines > 0,
@@ -77,6 +81,7 @@ class _SimpleUrlPreviewState extends State<SimpleUrlPreview> {
   Color _imageLoaderColor;
   EdgeInsetsGeometry _previewContainerPadding;
   VoidCallback _onTap;
+  VoidCallback _onClose;
 
   @override
   void initState() {
@@ -96,6 +101,7 @@ class _SimpleUrlPreviewState extends State<SimpleUrlPreview> {
     _titleLines = widget.titleLines;
     _previewContainerPadding = widget.previewContainerPadding;
     _onTap = widget.onTap ?? _launchURL;
+    _onClose = widget.onClose ?? () {};
   }
 
   void _getUrlData() async {
@@ -194,6 +200,7 @@ class _SimpleUrlPreviewState extends State<SimpleUrlPreview> {
                 setState(() {
                   _isVisible = false;
                 });
+                _onClose();
               },
             ),
           )
