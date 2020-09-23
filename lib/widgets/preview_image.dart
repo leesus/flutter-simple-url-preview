@@ -7,8 +7,7 @@ class PreviewImage extends StatelessWidget {
   final Color _imageLoaderColor;
   final EdgeInsetsGeometry padding;
 
-  PreviewImage(this._image, this._imageLoaderColor,
-      {this.padding});
+  PreviewImage(this._image, this._imageLoaderColor, {this.padding});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class PreviewImage extends StatelessWidget {
         padding: padding,
         child: CachedNetworkImage(
           imageUrl: _image,
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
           height: (MediaQuery.of(context).size.width -
                   MediaQuery.of(context).padding.top -
                   MediaQuery.of(context).padding.bottom) *
