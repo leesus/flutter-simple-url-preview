@@ -46,6 +46,9 @@ class SimpleUrlPreview extends StatefulWidget {
   /// Callback when closable preview closed
   final VoidCallback onClose;
 
+  /// Card elevation
+  final double elevation;
+
   SimpleUrlPreview({
     @required this.url,
     this.previewHeight = 130.0,
@@ -58,6 +61,7 @@ class SimpleUrlPreview extends StatefulWidget {
     this.previewContainerPadding,
     this.onTap,
     this.onClose,
+    this.elevation = 5,
   })  : assert(previewHeight >= 130.0,
             'The preview height should be greater than or equal to 130'),
         assert(titleLines <= 2 && titleLines > 0,
@@ -209,7 +213,7 @@ class _SimpleUrlPreviewState extends State<SimpleUrlPreview> {
 
   Card _buildPreviewCard(BuildContext context) {
     return Card(
-      elevation: 5,
+      elevation: widget.elevation,
       color: _bgColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
