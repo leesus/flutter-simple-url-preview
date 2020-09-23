@@ -66,9 +66,7 @@ class SimpleUrlPreview extends StatefulWidget {
     this.onClose,
     this.elevation = 5,
     this.imagePadding = const EdgeInsets.all(10),
-  })  : assert(previewHeight >= 130.0,
-            'The preview height should be greater than or equal to 130'),
-        assert(titleLines <= 2 && titleLines > 0,
+  })  : assert(titleLines <= 2 && titleLines > 0,
             'The title lines should be less than or equal to 2 and not equal to 0'),
         assert(descriptionLines <= 3 && descriptionLines > 0,
             'The description lines should be less than or equal to 3 and not equal to 0');
