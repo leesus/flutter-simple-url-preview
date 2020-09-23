@@ -5,14 +5,16 @@ import 'package:flutter/material.dart';
 class PreviewImage extends StatelessWidget {
   final String _image;
   final Color _imageLoaderColor;
+  final EdgeInsetsGeometry padding;
 
-  PreviewImage(this._image, this._imageLoaderColor);
+  PreviewImage(this._image, this._imageLoaderColor,
+      {this.padding});
 
   @override
   Widget build(BuildContext context) {
     if (_image != null) {
       return Padding(
-        padding: EdgeInsets.all(10),
+        padding: padding,
         child: CachedNetworkImage(
           imageUrl: _image,
           fit: BoxFit.fill,

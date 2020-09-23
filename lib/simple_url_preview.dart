@@ -49,6 +49,9 @@ class SimpleUrlPreview extends StatefulWidget {
   /// Card elevation
   final double elevation;
 
+  /// Image padding
+  final EdgeInsetsGeometry imagePadding;
+
   SimpleUrlPreview({
     @required this.url,
     this.previewHeight = 130.0,
@@ -62,6 +65,7 @@ class SimpleUrlPreview extends StatefulWidget {
     this.onTap,
     this.onClose,
     this.elevation = 5,
+    this.imagePadding = const EdgeInsets.all(10),
   })  : assert(previewHeight >= 130.0,
             'The preview height should be greater than or equal to 130'),
         assert(titleLines <= 2 && titleLines > 0,
@@ -226,6 +230,7 @@ class _SimpleUrlPreviewState extends State<SimpleUrlPreview> {
             child: PreviewImage(
               _urlPreviewData['og:image'],
               _imageLoaderColor,
+              padding: widget.imagePadding,
             ),
           ),
           Expanded(
