@@ -17,6 +17,7 @@ class PreviewSiteName extends StatelessWidget {
           fontSize: 14,
           color: _textColor,
         ),
+        overflow: TextOverflow.ellipsis,
       );
     } else {
       return SizedBox();
