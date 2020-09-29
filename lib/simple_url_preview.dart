@@ -118,7 +118,8 @@ class _SimpleUrlPreviewState extends State<SimpleUrlPreview> {
       return;
     }
 
-    var response = await get(widget.url);
+    var response = await get(widget.url,
+        headers: {'User-Agent': 'facebookexternalhit/1.1'});
     if (response.statusCode != 200) {
       if (!this.mounted) {
         return;
